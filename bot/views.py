@@ -28,9 +28,12 @@ def index(request):
 def reply_text(reply_token, text):
     reply = random.choice(osomatsu_serif)
 
-    r = re.compile("1d.*")
+    r = re.compile("\dd\d+")
     m = re.match(r,text)
     if m:
+        text.split("d")
+        split_text=text[3]
+        print (split_text)
         reply  = str([random.randint(1,100)])
 
     payload = {
