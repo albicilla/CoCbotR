@@ -6,10 +6,10 @@ import requests
 from django.shortcuts import render
 from django.http import HttpResponse
 
-# localで実行するときはここのコメントアウトをはずす
-import sys
-path="/Users/albicilla/programming/osoBOT/osomatsu_bot/bot/"
-sys.path.append(path)
+# localで実行するときは以下三行のコメントアウトをはずす
+#import sys
+#path="/Users/albicilla/programming/osoBOT/osomatsu_bot/bot/"
+#sys.path.append(path)
 
 
 from load_serif import osomatsu_serif  # 先ほどのおそ松のセリフ一覧をimport
