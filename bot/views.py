@@ -27,11 +27,18 @@ def index(request):
 
 def reply_text(reply_token, text):
 
+    # dice 正規表現
     r = re.compile("\dd\d+")
     m = re.match(r,text)
     split_text=text.split("d")
+
+    # 説明　正規表現
+    explain = re.compile("説明.*")
+
     reply = ""
-    if m:
+    if re.match(explain,text):
+        reply = "【コマンド一覧】[数値1]d[数値2]：[数値2]面ダイスを[数値1]回振る\n 僕は藤岡だ。力になれたら嬉しい。"
+    elif m:
         for i in range(int(split_text[0])):
             reply  += str([random.randint(1,int(split_text[1]))])
     else:
