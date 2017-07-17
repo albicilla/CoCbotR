@@ -7,9 +7,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # localで実行するときは以下三行のコメントアウトをはずす
-#import sys
-#path="/Users/albicilla/programming/osoBOT/osomatsu_bot/bot/"
-#sys.path.append(path)
+import sys
+path="/Users/albicilla/programming/osoBOT/osomatsu_bot/bot/"
+sys.path.append(path)
 
 
 from load_serif import osomatsu_serif  # 先ほどのおそ松のセリフ一覧をimport
@@ -37,7 +37,7 @@ def reply_text(reply_token, text):
 
     reply = ""
     if re.match(explain,text):
-        reply = "【コマンド一覧】[数値1]d[数値2]：[数値2]面ダイスを[数値1]回振る\n 僕は藤岡だ。力になれたら嬉しい。"
+        reply = "【コマンド一覧】[数値1]d[数値2]：[数値2]面ダイスを[数値1]回振る 僕は藤岡だ。力になれたら嬉しい。"
     elif m:
         for i in range(int(split_text[0])):
             reply  += str([random.randint(1,int(split_text[1]))])
