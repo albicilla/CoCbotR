@@ -7,9 +7,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # localで実行するときはここのコメントアウトをはずす
-#import sys
-#path="/Users/albicilla/programming/osoBOT/osomatsu_bot/bot/"
-#sys.path.append(path)
+import sys
+path="/Users/albicilla/programming/osoBOT/osomatsu_bot/bot/"
+sys.path.append(path)
 
 
 from load_serif import osomatsu_serif  # 先ほどのおそ松のセリフ一覧をimport
@@ -26,15 +26,17 @@ def index(request):
     return HttpResponse("This is bot api.")
 
 def reply_text(reply_token, text):
-    reply = random.choice(osomatsu_serif)
 
     r = re.compile("\dd\d+")
     m = re.match(r,text)
+    split_text=text.split("d")
+    reply = ""
     if m:
-        text.split("d")
-        split_text=text[3]
-        print (split_text)
-        reply  = str([random.randint(1,100)])
+        for i in range(int(split_text[0])):
+            reply  += str([random.randint(1,int(split_text[1]))])
+    else:
+        reply = random.choice(osomatsu_serif)
+
 
     payload = {
           "replyToken":reply_token,
