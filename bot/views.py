@@ -33,11 +33,11 @@ def reply_text(reply_token, text):
     split_text=text.split("d")
 
     # 説明　正規表現
-    explain = re.compile("説明.*")
+    explain = re.compile("explain*")
 
     reply = ""
     if re.match(explain,text):
-        reply = "【コマンド一覧】[数値1]d[数値2]：[数値2]面ダイスを[数値1]回振る 僕は藤岡だ。力になれたら嬉しい。"
+        reply = "【コマンド一覧】[数値1]d[数値2]：[数値2]面ダイスを[数値1]回振る\n 僕は藤岡だ。力になれたら嬉しい。"
     elif m:
         for i in range(int(split_text[0])):
             reply  += str([random.randint(1,int(split_text[1]))])
