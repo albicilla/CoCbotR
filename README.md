@@ -4,21 +4,21 @@ CoC(coll of cthulhu) で役立てたいline bot
 Heroku + Django
 
 
--.
-  +Procfile
-  -README.md
-  -bot
-    -__init__.py
-    -.
-    -.
-    -load_serif.py # セリフ取得
-    -osomatsu_serif.txt #セリフ中身
-    -views.py #ここをメインにいじる
-  -dbsplite3
-  -manage.py
-  +osomatsu_bot
-  +requirements.txt
-  +runtime.txt
+- .
+  + Procfile
+  - README.md
+  - bot
+    - __init__.py
+    - . 
+    - .
+    - load_serif.py # セリフ取得
+    - osomatsu_serif.txt #セリフ中身
+    - views.py #ここをメインにいじる
+  - dbsplite3
+  - manage.py
+  + osomatsu_bot
+  + requirements.txt
+  + runtime.txt
 
 
 
