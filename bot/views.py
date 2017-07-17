@@ -28,12 +28,11 @@ def index(request):
 def reply_text(reply_token, text):
     reply = random.choice(osomatsu_serif)
 
-    r = re.compile("^[a-z0-9]")
-    m = r.search(text)
-    if m == "None":
-        print ("N")
-    else:
+    r = re.compile("1d.*")
+    m = re.match(r,text)
+    if m:
         reply  = str([random.randint(1,100)])
+
     payload = {
           "replyToken":reply_token,
           "messages":[
