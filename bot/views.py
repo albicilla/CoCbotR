@@ -35,12 +35,55 @@ def reply_text(reply_token, text):
     # 説明　正規表現
     explain = re.compile("explain*")
 
+    # 狂気　正規表現
+    sanc_s = re.compile("^scs$")
+    sanc_l = re.compile("^scl$")
+
+    # 狂気の一覧
+    scs_type = [
+        'null',
+        '気絶あるいは金切声',
+        'パニックになって逃走',
+        '感情の噴出（大泣きや大笑いなど）',
+        '多弁症、一貫した会話の奔流',
+        '釘付けになるほどの恐怖',
+        '殺人癖、自殺癖',
+        '幻覚/妄想',
+        '周りの者の動作/発言を反復する'
+        '異常食',
+        '昏迷/緊張症'
+    ]
+
+    scl_type= [
+        'null',
+        '健忘症/昏迷/緊張症',
+        '激しい恐怖症（逃走可能）',
+        '幻覚',
+        '奇妙な性的嗜好（露出狂、奇形愛好症など）',
+        'フェティッシュ、異常な執着',
+        '制御不能のチック、震え、失語',
+        '心因性視覚障害、心因性難聴、四肢の機能障害',
+        '心因反応（支離滅裂、妄想、常軌を逸したふるまい、幻覚など）',
+        '一時的偏執症',
+        '強迫観念に取りつかれた行動'
+    ]
+
     reply = ""
     if re.match(explain,text):
         reply = "【コマンド一覧】[数値1]d[数値2]：[数値2]面ダイスを[数値1]回振る\n 僕は藤岡だ。力になれたら嬉しい。"
     elif m:
         for i in range(int(split_text[0])):
             reply  += str([random.randint(1,int(split_text[1]))])
+    elif re.match(sanc_s, text):
+        rnum = str(random.randint(1,10))
+        type = scs_type[int(rnum)]
+        round = str(random.randint(4,14))
+        reply = "結果：" + rnum + "\n" + type + "\nラウンド：" + round
+    elif re.match(sanc_l, text):
+        rnum = str(random.randint(1,10))
+        type = scl_type[int(rnum)]
+        round = str(random.randint(4,14))
+        reply = "結果：" + rnum + "\n" + type + "\nラウンド：" + round
     else:
         reply = random.choice(osomatsu_serif)
 
