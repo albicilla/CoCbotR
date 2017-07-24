@@ -82,13 +82,11 @@ def reply_text(reply_token, text):
         round = str(random.randint(4,14))
         reply = "結果：" + rnum + "\n" + type + "\nラウンド：" + round
     elif re.match(sanc_l, text):
-        rnum = str(random.randint(1,10))
-        type = scl_type[int(rnum)]
-        round = str(random.randint(4,14))
-        reply = "結果：" + rnum + "\n" + type + "\n時間：" + round
+        time_list = range(10, 110, 10)
+        time_select = random.randint(0,9)
+        reply = "結果：" + rnum + "\n" + type + "\n時間：" + str(time_list[time_select])
     elif re.match(zatu,text):
         reply = random.choice(osomatsu_serif)
-
 
 
 
