@@ -39,6 +39,10 @@ def reply_text(reply_token, text):
     sanc_s = re.compile("^scs$")
     sanc_l = re.compile("^scl$")
 
+    # ccb　正規表現
+    ccb = re.compile("ccb.*")
+    split_text_ccb=text.split("<=")
+
     #雑談　正規表現
     zatu = re.compile("huzioka")
     # 狂気の一覧
@@ -90,7 +94,21 @@ def reply_text(reply_token, text):
         reply = "結果：" + rnum + "\n" + type + "\n時間：" + str(time_list[time_select])
     elif re.match(zatu,text):
         reply = random.choice(osomatsu_serif)
-    elif re.match(ccb,text)
+    elif re.match(ccb,text):
+        ret = random.randint(1,int(split_text_ccb[1]))
+        reply += str([ret])
+        scf = ""
+        if ret <= 5:
+            scf = " クリティカル/決定的成功"
+        elif ret <= int(split_text_ccb[1])/5:
+            scf = " スペシャル/大成功"
+        elif ret <= int(split_text_ccb[1]):
+            scf = " 成功"
+        elif ret > int(split_text_ccb[1]):
+            scf = " 失敗"
+        elif ret >=95:
+            scf = " ファンブル/致命的失敗"
+        reply += scf
 
 
 
