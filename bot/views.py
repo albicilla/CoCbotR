@@ -33,7 +33,7 @@ def reply_text(reply_token, text):
     split_text=text.split("d")
 
     # 説明　正規表現
-    explain = re.compile("explain*")
+    explain = re.compile("help*")
 
     # 狂気　正規表現
     sanc_s = re.compile("^scs$")
@@ -76,7 +76,7 @@ def reply_text(reply_token, text):
 
     reply = ""
     if re.match(explain,text):
-        reply = "【コマンド一覧】\n[数値1]d[数値2]：[数値2]面ダイスを[数値1]回振る\nscs：短期の一時的狂気選択\nscl：長期の一時的狂気選択\nたぬー"
+        reply = "【コマンド一覧】\n[数値1]d[数値2]：[数値2]面ダイスを[数値1]回振る\nscs：短期の一時的狂気選択\nscl：長期の一時的狂気選択\nccb<=[数値]:1d100で数値以下か判定\nたぬー"
     elif m:
         reply = split_text[0] + "d" + split_text[1] + "->"
         for i in range(int(split_text[0])):
