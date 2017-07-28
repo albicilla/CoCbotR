@@ -95,7 +95,7 @@ def reply_text(reply_token, text):
     elif re.match(zatu,text):
         reply = random.choice(osomatsu_serif)
     elif re.match(ccb,text):
-        ret = random.randint(1,int(split_text_ccb[1]))
+        ret = random.randint(1,100)
         reply += str([ret])
         scf = ""
         if ret <= 5:
