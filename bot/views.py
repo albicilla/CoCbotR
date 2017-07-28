@@ -74,8 +74,8 @@ def reply_text(reply_token, text):
     if re.match(explain,text):
         reply = "【コマンド一覧】\n[数値1]d[数値2]：[数値2]面ダイスを[数値1]回振る\nscs：短期の一時的狂気選択\nscl：長期の一時的狂気選択\n僕は藤岡だ。力になれたら嬉しい。"
     elif m:
+        reply = split_text[0] + "d" + split_text[1] + "->"
         for i in range(int(split_text[0])):
-            reply += split_text[0] + "d" + split_text[1] + "->"
             reply  += str([random.randint(1,int(split_text[1]))])
     elif re.match(sanc_s, text):
         rnum = str(random.randint(1,10))
