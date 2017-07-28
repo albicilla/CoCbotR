@@ -96,7 +96,7 @@ def reply_text(reply_token, text):
         reply = random.choice(osomatsu_serif)
     elif re.match(ccb,text):
         ret = random.randint(1,100)
-        reply += str([ret])
+        reply += "1d100 -> "+str([ret])
         scf = ""
         if ret <= 5:
             scf = " クリティカル/決定的成功"
@@ -108,7 +108,7 @@ def reply_text(reply_token, text):
             scf = " 失敗"
         elif ret >=95:
             scf = " ファンブル/致命的失敗"
-        reply += scf
+        reply += " -> " + scf
 
 
 
