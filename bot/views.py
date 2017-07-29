@@ -126,7 +126,7 @@ def reply_text(reply_token, text):
                     #"text": reply
                     "type":"audio",
                     "originalContentUrl":"https://www.dropbox.com/s/9v0i83lzj8yrsxh/%E3%81%82%E3%82%8B%E9%9B%A8%E3%81%AE%E6%97%A5.mp3?dl=1",
-                
+                    "duration": 240000
 
                 }
             ]
