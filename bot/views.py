@@ -13,6 +13,7 @@ sys.path.append(path)
 
 
 from load_serif import osomatsu_serif  # 先ほどのおそ松のセリフ一覧をimport
+from load_serif import tanukiti_serif #たぬきちのセリフをimport
 import re #正規表現
 
 REPLY_ENDPOINT = 'https://api.line.me/v2/bot/message/reply'
@@ -43,8 +44,12 @@ def reply_text(reply_token, text):
     ccb = re.compile("ccb.*")
     split_text_ccb=text.split("<=")
 
+    # cbr 正規表現
+    cbr = re.compile("cbr.*")
+
+
     #雑談　正規表現
-    zatu = re.compile("huzioka")
+    zatu = re.compile("^([^A-Za-z]+)")
     # 狂気の一覧
     scs_type = [
         'null',
@@ -93,7 +98,8 @@ def reply_text(reply_token, text):
         time_select = random.randint(0,9)
         reply = "結果：" + rnum + "\n" + type + "\n時間：" + str(time_list[time_select])
     elif re.match(zatu,text):
-        reply = random.choice(osomatsu_serif)
+        print "hoge"
+        reply = random.choice(tanukiti_serif)
     elif re.match(ccb,text):
         ret = random.randint(1,100)
         reply += "1d100 -> "+str([ret])
