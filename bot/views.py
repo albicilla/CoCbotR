@@ -49,7 +49,7 @@ def reply_text(reply_token, text):
 
 
     #雑談　正規表現
-    zatu = re.compile("^([^A-Za-z]+)")
+    zatu = re.compile("たぬー")
     # 狂気の一覧
     scs_type = [
         'null',
@@ -99,7 +99,7 @@ def reply_text(reply_token, text):
         reply = "結果：" + rnum + "\n" + type + "\n時間：" + str(time_list[time_select])
     elif re.match(zatu,text):
         #print "hoge"
-        #reply = random.choice(tanukiti_serif)
+        reply = random.choice(tanukiti_serif)
     elif re.match(ccb,text):
         ret = random.randint(1,100)
         reply += "1d100 -> "+str([ret])
