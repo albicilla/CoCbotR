@@ -98,8 +98,8 @@ def reply_text(reply_token, text):
         time_select = random.randint(0,9)
         reply = "結果：" + rnum + "\n" + type + "\n時間：" + str(time_list[time_select])
     elif re.match(zatu,text):
-        print "hoge"
-        reply = random.choice(tanukiti_serif)
+        #print "hoge"
+        #reply = random.choice(tanukiti_serif)
     elif re.match(ccb,text):
         ret = random.randint(1,100)
         reply += "1d100 -> "+str([ret])
@@ -124,10 +124,6 @@ def reply_text(reply_token, text):
                 {
                     "type":"text",
                     "text": reply
-                    #"type":"audio",
-                    #"originalContentUrl":"https://www.dropbox.com/s/9v0i83lzj8yrsxh/%E3%81%82%E3%82%8B%E9%9B%A8%E3%81%AE%E6%97%A5.mp3?dl=1",
-                    #"duration": 240000
-
                 }
             ]
     }
