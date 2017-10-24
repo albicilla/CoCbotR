@@ -133,10 +133,27 @@ def reply_text(reply_token, text):
         lucNum = powNum*5
         ideNum = intNum*5
         knoNum = eduNum*5
-        hpNum = (conNum+sizNum)/2
+        hpNum = (conNum+sizNum+1)/2
         mpNum = powNum
         shoNum = eduNum*20
         syuNum = intNum*10
+        dbNum=(conNum+sizNum)
+        dbState=""
+        if dbNum<=12
+            dbState="-1d6"
+            elif dbNum <=16
+            dbState="-1d4"
+            elif dbNum <=24
+            dbState="なし"
+            elif dbNum <=32
+            dbState="+1d4"
+            elif dbNum <=40
+            dbState="+1d6"
+            elif dbNum <=56
+            dbState="+2d6"
+            else
+            dbState="+3d6"
+
         scf+="名前記入欄(ふり仮名)　性別:　年齢:--\n職業:　母国語:**語　PL:\n"
         scf+="STR:"
         scf+=str(strNum)
@@ -166,8 +183,9 @@ def reply_text(reply_token, text):
         scf+=str(hpNum)
         scf+="M P:"
         scf+=str(mpNum)
-        scf+="db:表参照\n"
-        scf+="――――――――――――――――――――――――――――――\n"
+        scf+="db:""
+        scf+=dpState
+        scf+="\n――――――――――――――――――――――――――――――\n"
         scf+="[技能](職業技能点:---　個人技能点:---)\n"
         scf+="[職業技能]\n技 能 名:％(+)　技 能 名:％(+)　技 能 名:％(+)\n技 能 名:％(+)　技 能 名:％(+)　技 能 名:％(+)\n"
         scf+="[職業選択技能]\n技 能 名:％(+)　技 能 名:％(+)\n[個人技能]\n技 能 名:％(+)　技 能 名:％(+)　技 能 名:％(+)\n技 能 名:％(+)\n"
