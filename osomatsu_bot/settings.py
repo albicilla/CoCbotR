@@ -24,7 +24,7 @@ SECRET_KEY = 'g0ex6g2s&3c-@i6+sgc(ru-bi%rox700u5fygxv5c$ur&!9oii'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'radiant-brushlands-87613.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'radiant-headland-13758.herokuapp.com']
 
 
 # Application definition
@@ -116,7 +116,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
