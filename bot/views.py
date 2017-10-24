@@ -47,6 +47,9 @@ def reply_text(reply_token, text):
     # cbr 正規表現
     cbr = re.compile("cbr.*")
 
+    # make 正規表現
+    make = re.compile("make")
+
 
     #雑談　正規表現
     zatu = re.compile("たぬー")
@@ -115,6 +118,64 @@ def reply_text(reply_token, text):
         elif ret >=95:
             scf = " ファンブル/致命的失敗"
         reply += " -> " + scf
+
+    elif re.match(make,text):
+        scf = ""
+        strNum = random.randint(1,6)+random.randint(1,6)+random.randint(1,6)
+        conNum = random.randint(1,6)+random.randint(1,6)+random.randint(1,6)
+        powNum = random.randint(1,6)+random.randint(1,6)+random.randint(1,6)
+        dexNum = random.randint(1,6)+random.randint(1,6)+random.randint(1,6)
+        appNum = random.randint(1,6)+random.randint(1,6)+random.randint(1,6)
+        sizNum = random.randint(1,6)+random.randint(1,6)+6
+        intNum = random.randint(1,6)+random.randint(1,6)+6
+        eduNum = random.randint(1,6)+random.randint(1,6)+random.randint(1,6)+3
+        sanNum = powNum*5
+        lucNum = powNum*5
+        ideNum = intNum*5
+        knoNum = eduNum*5
+        hpNum = (conNum+sizNum)/2
+        mpNum = powNum
+        shoNum = eduNum*20
+        syuNum = intNum*10
+        scf+="名前記入欄(ふり仮名)　性別:　年齢:--\n職業:　母国語:**語　PL:\n"
+        scf+="STR:"
+        scf+=str(strNum)
+        scf+="DEX:"
+        scf+=str(dexNum)
+        scf+="INT:"
+        scf+=str(intNum)
+        scf+="ｱｲﾃﾞｱ:"
+        scf+=str(ideNum)
+        scf+="\nCON:"
+        scf+=str(conNum)
+        scf+="APP:"
+        scf+=str(appNum)
+        scf+="POW:"
+        scf+=str(powNum)
+        scf+="幸 運:"
+        scf+=str(lucNum)
+        scf+="\nSIZ:"
+        scf+=str(sizNum)
+        scf+="SAN:"
+        scf+=str(sanNum)
+        scf+="EDU:"
+        scf+=str(eduNum)
+        scf+="知 識:"
+        scf+=str(knoNum)
+        scf+="\nH P:"
+        scf+=str(hpNum)
+        scf+="M P:"
+        scf+=str(mpNum)
+        scf+="db:表参照\n"
+        scf+="――――――――――――――――――――――――――――――\n"
+        scf+="[技能](職業技能点:---　個人技能点:---)\n"
+        scf+="[職業技能]\n技 能 名:％(+)　技 能 名:％(+)　技 能 名:％(+)\n技 能 名:％(+)　技 能 名:％(+)　技 能 名:％(+)\n"
+        scf+="[職業選択技能]\n技 能 名:％(+)　技 能 名:％(+)\n[個人技能]\n技 能 名:％(+)　技 能 名:％(+)　技 能 名:％(+)\n技 能 名:％(+)\n"
+        scf+="――――――――――――――――――――――――――――――\n"
+        scf+="[装備]\n【武器】\n・[武器名]\n{ﾀﾞﾒｰｼﾞ:　攻撃回数:　装弾数:　耐久力:　故障No:}\n【防具】\n・[防具名]\n"
+        scf+="効果:\n【所持品】\n(――――――――――― 此処に記入 ―――――――――――)\n――――――――――――――――――――――――――――――\n"
+
+        reply = scf
 
 
 
