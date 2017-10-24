@@ -183,8 +183,8 @@ def reply_text(reply_token, text):
         scf+=str(hpNum)
         scf+="M P:"
         scf+=str(mpNum)
-        scf+="db:""
-        scf+=dpState
+        scf+="db:"
+        scf+=dbState
         scf+="\n――――――――――――――――――――――――――――――\n"
         scf+="[技能](職業技能点:---　個人技能点:---)\n"
         scf+="[職業技能]\n技 能 名:％(+)　技 能 名:％(+)　技 能 名:％(+)\n技 能 名:％(+)　技 能 名:％(+)　技 能 名:％(+)\n"
